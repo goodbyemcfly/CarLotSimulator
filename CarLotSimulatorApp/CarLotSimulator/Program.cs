@@ -6,6 +6,7 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var carLot = new CarLot(); 
             //TODO
 
             // DONE Create a seperate class file called Car
@@ -17,15 +18,24 @@ namespace CarLotSimulator
             // DONE Now that the Car class is created we can instanciate 3 new cars
             // DONE Set the properties for each of the cars
 
-            var car1 = new Car();
-            car1.Year = 2015;
-            car1.Make = "Ford";
-            car1.Model = "F150";
-            car1.EngineNoise = "VROOM (Trucks are too loud)";
-            car1.HonkNoise = "honk";
-            car1.IsDriveable = true;
+            Console.WriteLine($"The current number of cars in the lot is: {CarLot._numberOfCars}");
+            Console.WriteLine();
 
-            var car2 = new Car()
+            var carOne = new Car();
+            carOne.Year = 2015;
+            carOne.Make = "Ford";
+            carOne.Model = "F150";
+            carOne.EngineNoise = "VROOM (Trucks are too loud)";
+            carOne.HonkNoise = "honk";
+            carOne.IsDriveable = true;
+
+            carLot.ParkingLot.Add(carOne);
+            Console.WriteLine($"The first car we will add to the lot is a {carOne.Year} {carOne.Make} {carOne.Model}");
+
+            Console.WriteLine($"The current number of cars in the lot is: {CarLot._numberOfCars}");
+            Console.WriteLine();
+
+            var carTwo = new Car()
             {
                 Year = 2020,
                 Make = "Toyota",
@@ -35,31 +45,39 @@ namespace CarLotSimulator
                 IsDriveable = true,
             };
 
-            var car3 = new Car();
-            car3.Year = 1995;
-            car3.Make = "Toyota";
-            car3.Model = "Camry";
-            car3.EngineNoise = "vroom (this car is appropriately loud";
-            car3.HonkNoise = "honk";
-            car3.IsDriveable = false;
+            carLot.ParkingLot.Add(carTwo);
+            Console.WriteLine($"The second car we will add to the lot is a {carTwo.Year} {carTwo.Make} {carTwo.Model}");
+
+            Console.WriteLine($"The current number of cars in the lot is: {CarLot._numberOfCars}");
+            Console.WriteLine();
+
+            var carThree = new Car();
+            carThree.Year = 1995;
+            carThree.Make = "Toyota";
+            carThree.Model = "Camry";
+            carThree.EngineNoise = "vroom (this car is appropriately loud";
+            carThree.HonkNoise = "honk";
+            carThree.IsDriveable = false;
+
+            carLot.ParkingLot.Add(carThree);
+            Console.WriteLine($"The third car we will add to the lot is a {carThree.Year} {carThree.Make} {carThree.Model}");
+
+            Console.WriteLine($"The current number of cars in the lot is: {CarLot._numberOfCars}");
+            Console.WriteLine();
+
+            Console.WriteLine("Here is a list of all the cars we have in the lot.");
+            carLot.CheckCars();
 
             // DONE Call each of the methods for each car
-            car1.MakeEngineNoise(car1.EngineNoise);
-            car2.MakeEngineNoise(car2.EngineNoise);
-            car3.MakeEngineNoise(car3.EngineNoise);
+            //carOne.MakeEngineNoise(carOne.EngineNoise);
+            //carTwo.MakeEngineNoise(carTwo.EngineNoise);
+            //carThree.MakeEngineNoise(carThree.EngineNoise);
 
-            car1.MakeHonkNoise(car1.HonkNoise);
-            car2.MakeHonkNoise(car2.HonkNoise);
-            car3.MakeHonkNoise(car3.HonkNoise);
+            //carOne.MakeHonkNoise(carOne.HonkNoise);
+            //carTwo.MakeHonkNoise(carTwo.HonkNoise);
+            //carThree.MakeHonkNoise(carThree.HonkNoise);
 
-
-            //*************BONUS*************//
-
-            // Set the properties utilizing the 3 different ways we learned about, one way for each car
-
-            //*************BONUS X 2*************//
-
-            //Create a CarLot class
+            // DONE Create a CarLot class
             //It should have at least one property: a List of cars
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
